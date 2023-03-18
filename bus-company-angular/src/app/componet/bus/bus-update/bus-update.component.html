@@ -1,0 +1,65 @@
+<h3>Add new bus</h3>
+<div class="container">
+  <form *ngIf="busForm" [formGroup]="busForm" (ngSubmit)="update(id)">
+    <div class="form-group">
+      <label>Bus Number</label>
+      <input class="form-control" type="text" formControlName="busNumber">
+    </div>
+    <div class="form-group">
+      <label>Bus Type</label>
+      <select class="form-control" formControlName="busType">
+        <option *ngFor="let busType of busTypes"
+                [ngValue]="busType">{{busType.name}}</option>
+      </select>
+      <span
+        *ngIf="busForm.controls.busType?.touched && busForm.controls.busType?.errors?.required">Must be enter !</span>
+    </div>
+    <div class="form-group">
+      <label>Bus Company</label>
+      <input class="form-control" type="text" formControlName="company">
+      <span
+        *ngIf="busForm.controls.tenNhaXe?.touched && busForm.controls.tenNhaXe?.errors?.required">Must be enter !</span>
+    </div>
+    <div class="form-group">
+      <label>Departure Location</label>
+      <select class="form-control" formControlName="departureLocation">
+        <option *ngFor="let departureLocation of locations"
+                [ngValue]="departureLocation">{{departureLocation.name}}</option>
+      </select>
+      <span *ngIf="busForm.controls.departureLocation?.touched && busForm.controls.departureLocation?.errors?.required">Must be enter !</span>
+    </div>
+    <div class="form-group">
+      <label>Arrival Location</label>
+      <select class="form-control" formControlName="arrivalLocation">
+        <option *ngFor="let arrivalLocation of locations" [ngValue]="arrivalLocation">{{arrivalLocation.name}}</option>
+      </select>
+      <span *ngIf="busForm.controls.arrivalLocation?.touched && busForm.controls.arrivalLocation?.errors?.required">Must be enter !</span>
+    </div>
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input class="form-control" type="text" formControlName="phoneNumber">
+    </div>
+    <span *ngIf="busForm.controls.phoneNumber?.touched && busForm.controls.phoneNumber?.errors?.required">Must be enter !</span>
+    <div class="form-group">
+      <label>email</label>
+      <input class="form-control" type="text" formControlName="email">
+    </div>
+    <span *ngIf="busForm.controls.email?.touched && busForm.controls.email?.errors?.required">Must be enter !</span>
+    <span
+      *ngIf="busForm.controls.email?.touched && busForm.controls.email?.errors?.email">Must be enter Email of form</span>
+    <div class="form-group">
+      <label>Departure Time</label>
+      <input class="form-control" type="time" formControlName="departureTime">
+    </div>
+    <span *ngIf="busForm.controls.departureTime?.touched && busForm.controls.departureTime?.errors?.required">Must be enter !</span>
+    <div class="form-group">
+      <label>Arrival Time</label>
+      <input class="form-control" type="time" formControlName="arrivalTime">
+    </div>
+    <span *ngIf="busForm.controls.arrivalTime?.touched && busForm.controls.arrivalTime?.errors?.required">Must be enter !</span>
+    <br>
+    <div>
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>

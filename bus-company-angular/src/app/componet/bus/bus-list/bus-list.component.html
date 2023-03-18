@@ -1,0 +1,70 @@
+<h3>List of buses registered at the station</h3>
+<div>
+  <a routerLink="/bus/create">
+    <button class="btn btn-success">Add new bus</button>
+  </a>
+</div>
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>STT</th>
+      <th>Số Xe</th>
+      <th>Loại Xe</th>
+      <th>Tên nhà Xe</th>
+      <th>Điểm Đi</th>
+      <th>Điểm Đến</th>
+      <th>SDT</th>
+      <th>Email</th>
+      <th>Giờ đi</th>
+      <th>Giờ đến</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let bus of buses; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{bus.busNumber}}</td>
+      <td>{{bus.company}}</td>
+      <td>{{bus.departureLocation.name}}</td>
+      <td>{{bus.arrivalLocation.name}}</td>
+      <td>{{bus.phoneNumber}}</td>
+      <td>{{bus.email}}</td>
+      <td>{{bus.departureTime}}</td>
+      <td>{{bus.arrivalTime}}</td>
+      <td>
+        <a routerLink="/bus/update/{{bus.id}}">
+          <button class="btn btn-success">Update</button>
+        </a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                (click)="temp=bus">Delete
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--modal delete-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="color: red">
+        Do you want to delete {{temp.busNumber}} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="delete(temp.id)" data-bs-dismiss="modal">Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

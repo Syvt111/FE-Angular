@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+h3 {
+  background-color: azure;
+  color: #12286a;
+  padding: 10px 0 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+nav {
+  background-color: azure;
+  color: #0a5658;
+  padding: 10px 0 10px 20px;
+  align-content: center;
+  font-size: xx-large;
+  font-family: "Segoe Fluent Icons";
+}
+
+span {
+  color: red
+}
+
+.notify span {
+  font-size: 15px;
+  color: blue;
+}
